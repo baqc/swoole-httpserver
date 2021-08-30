@@ -54,11 +54,12 @@ class HttpServer
                 $dispatch = $dispatcher->dispatch($request->getMethod(),$request->server["request_uri"]);
                 switch ($dispatch[0]) {
                     case \FastRoute\Dispatcher::NOT_FOUND:
-                        $response->end("404");
+                        $response->setStatusCode(404);
+                        $response->end("Not Found");
                         break;
                     case \FastRoute\Dispatcher::METHOD_NOT_ALLOWED:
-                        $allowedMethods = $dispatch[1];
-                        $response->end("405");
+                        $response->setStatusCode(405);
+                        $response->end("Allow: ".$dispatch[1][0]);
                         break;
                     case \FastRoute\Dispatcher::FOUND:
                         $target = explode("@",$dispatch[1]);
