@@ -12,7 +12,7 @@ namespace RikkaTech\SwooleHttp;
 
 class Singleton
 {
-    private static ?self $instance = null;
+    protected static ?self $instance = null;
 
     public function __construct()
     {
