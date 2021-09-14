@@ -8,7 +8,7 @@
  * @copyright swoole-httpserver
  * @create 2021/8/31 5:52
  */
-class HomeController extends Controller
+class HomeAbstractController extends AbstractController
 {
     public function index()
     {
